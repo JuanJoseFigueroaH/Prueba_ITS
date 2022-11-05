@@ -20,7 +20,6 @@ import org.hibernate.annotations.NaturalId;
 @Entity
 @Table(name = "users") 
 public class User {
-    
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")

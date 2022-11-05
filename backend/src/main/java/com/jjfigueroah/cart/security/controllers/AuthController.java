@@ -75,11 +75,6 @@ public class AuthController {
             return new ResponseEntity<>(new Message("Revise los campos e intente nuevamente"), HttpStatus.BAD_REQUEST);
         User user = new User(newUser.getUserName(), newUser.getEmail(),
                 passwordEncoder.encode(newUser.getPassword()));
-        Set<Role> roles = new HashSet<>();
-        if (newUser.getRoles().contains("admin24154545154545aADASKskjdka****/"))
-            roles.add(roleService.getByRoleName(RoleList.ROLE_ADMIN).get());
-        roles.add(roleService.getByRoleName(RoleList.ROLE_USER).get());
-        user.setRoles(roles);
         userService.save(user);
         return new ResponseEntity<>(new Message("Registro exitoso! Inicie sesión"), HttpStatus.CREATED);
     }
